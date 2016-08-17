@@ -1,0 +1,24 @@
+---
+- hosts: tag_Type_ec2
+  user: ec2-user
+  sudo: yes
+  tasks:
+  - name: Update all packages to latest
+    yum: name=* state=latest
+
+- hosts: tag_Name_Web
+  user: ec2-user
+  sudo: yes
+  tasks:
+  - name: ensure Nginx is installed
+    yum: name=nginx state=latest
+  - name: ensure that nginx is running
+    service: name=nginx state=started
+
+- hosts: tag_Name_App*
+  user: ec2-user
+  sudo: yes
+  tasks:
+  - name: Install go
+    yum: name=go state=latest
+    

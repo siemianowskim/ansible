@@ -21,4 +21,8 @@
   tasks:
   - name: Install go
     yum: name=go state=latest
-    
+  - name: copy test go app 
+    template: src=test.go dest=/home/ec2-user/
+  - name: start Go application
+    command: nohup go run /home/ec2-user/test.go &
+

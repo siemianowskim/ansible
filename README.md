@@ -38,9 +38,9 @@ Feel free to create new ssh-key that you're going to use to connect with AWS res
 ssh-keygen -t rsa -C "ansible" -P '' -f ~/.ssh/ansible
 
 
-Before we begin:
+#Before we begin:
 Please take a note of you're AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-
+Please update your variables files : terraform.tfvars, variables.tf 
 
 Lets spin up your environment first:
 

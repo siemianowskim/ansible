@@ -12,6 +12,8 @@
   tasks:
   - name: ensure Nginx is installed
     yum: name=nginx state=latest
+  - name: Copying Nginx LB config
+    template: src=nginx.conf dest=/etc/nginx/
   - name: ensure that nginx is running
     service: name=nginx state=started
 

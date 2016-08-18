@@ -53,7 +53,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["10.0.0.0/0"]
   }
 
-  # HTTP access from the VPC
+  # Application access from the VPC
   ingress {
     from_port   = 8484
     to_port     = 8484

@@ -28,6 +28,7 @@ Next, we need to refresh our system's package index so that it is aware of the p
 sudo apt-get update
 sudo apt-get install ansible
 
+Also, Ive added known EC2.py script that will do Auto discovery of resources ( based on Tags )
 
 #3) AWS account & SSH key
 
@@ -42,13 +43,23 @@ ssh-keygen -t rsa -C "ansible" -P '' -f ~/.ssh/ansible
 
 Please take a note of you're AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
 
-Please update your variables files : terraform.tfvars, variables.tf 
+Please update your variables files : terraform.tfvars, variables.tf , also please update example.tf file with your ansible ssh publick key
+"public_key = "ssh-rsa..."
+
 
 #Lets spin up your environment first:
+example.tf - contain configuration of AWS resources that will be created :
+VPC, route table, subnets,  Firewall rules, SSH public key, EC2 instances.
+
+Run: 
 
 terraform apply -var-file terraform.tfvars
+
 if you want to just check your config file, please run "terraform plan"
 
 terraform plan -var-file terraform.tfvars 
+
+This shuld create new AWS resources, and assign ssk key.
+
 
 # Time to run our Ansible playbook

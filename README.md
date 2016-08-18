@@ -39,14 +39,16 @@ ssh-keygen -t rsa -C "ansible" -P '' -f ~/.ssh/ansible
 
 
 #Before we begin:
+
 Please take a note of you're AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+
 Please update your variables files : terraform.tfvars, variables.tf 
 
-Lets spin up your environment first:
+#Lets spin up your environment first:
 
 terraform apply -var-file terraform.tfvars
 if you want to just check your config file, please run "terraform plan"
 
 terraform plan -var-file terraform.tfvars 
 
-2)
+# Time to run our Ansible playbook

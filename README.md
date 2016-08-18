@@ -63,3 +63,11 @@ This shuld create new AWS resources, and assign ssk key.
 
 
 # Time to run our Ansible playbook
+
+ansible-playbook -i ec2.py ec2playbook.yml
+
+As you can see we're going to use ec2 plugin for hosts auto discovery on AWS.
+
+Verification:
+
+Please browse Web server public ip

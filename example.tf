@@ -50,7 +50,15 @@ resource "aws_security_group" "default" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
+    cidr_blocks = ["10.0.0.0/0"]
+  }
+
+  # HTTP access from the VPC
+  ingress {
+    from_port   = 8484
+    to_port     = 8484
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.1.0/24"]
   }
 
   # outbound internet access
@@ -77,6 +85,7 @@ resource "aws_instance" "Web" {
     }
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
   subnet_id = "${aws_subnet.default.id}"
+  private_ip = "10.0.1.100"
 }
 
 resource "aws_instance" "App1" {
@@ -89,6 +98,7 @@ resource "aws_instance" "App1" {
     }
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
   subnet_id = "${aws_subnet.default.id}"
+  private_ip = "10.0.1.110"
 }
 
 resource "aws_instance" "App2" {
@@ -101,5 +111,6 @@ resource "aws_instance" "App2" {
     }
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
   subnet_id = "${aws_subnet.default.id}"
+  private_ip = "10.0.1.120"
 }
 

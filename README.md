@@ -70,16 +70,5 @@ As you can see we're going to use ec2 plugin for hosts auto discovery on AWS.
 
 Verification:
 
-<<<<<<< HEAD
-<<<<<<< develop
 Please browse Web server public ip
-,,
-,,
-,,
 
-=======
-Please browse Web server public ipmmm  22
->>>>>>> mm2
-=======
-Please browse Web server public ipmmm  22
->>>>>>> master

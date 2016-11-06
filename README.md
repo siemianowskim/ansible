@@ -70,4 +70,4 @@ As you can see we're going to use ec2 plugin for hosts auto discovery on AWS.
 
 Verification:
 
-Please browse Web server public ip
+Please browse Web server public ip ???
